@@ -1,0 +1,154 @@
+/* ============================================================
+   AMS — Tab bar (modern pill style)
+   ============================================================ */
+
+.tabbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 6px;
+  padding: 10px var(--space);
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.tabbar::-webkit-scrollbar { display: none; }
+
+.tab {
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  background: transparent;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab::before {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+.tab[data-tab="students"]::before { content: "👥"; }
+.tab[data-tab="current"]::before  { content: "📌"; }
+.tab[data-tab="courses"]::before  { content: "📚"; }
+.tab[data-tab="settings"]::before { content: "⚙️"; }
+
+.tab:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.tab--active {
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.tab--active::before {
+  opacity: 1;
+}
+
+/* Panel */
+.tab-panel {
+  padding: var(--space-lg) var(--space);
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.25s ease;
+}
+
+.tab-panel[hidden] { display: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* ============================================================
+   Support tab (special look)
+   ============================================================ */
+
+.tab--support {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+  color: #fff !important;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(238, 90, 111, 0.4);
+  animation: support-pulse 2.4s ease-in-out infinite;
+}
+
+.tab--support:hover {
+  background: linear-gradient(135deg, #ff5566 0%, #e64a5f 50%, #b83860 100%);
+  transform: translateY(-1px);
+}
+
+.tab--support.tab--active {
+  background: linear-gradient(135deg, #ff5566 0%, #d63a55 50%, #a01e48 100%);
+  box-shadow: 0 6px 24px rgba(214, 40, 40, 0.6);
+}
+
+/* Shine sweep */
+.tab--support::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: support-shine 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Little sparkle */
+.tab--support::after {
+  content: "✨";
+  position: absolute;
+  top: 2px;
+  inset-inline-end: 6px;
+  font-size: 0.7rem;
+  opacity: 0;
+  animation: support-sparkle 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes support-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(238, 90, 111, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(238, 90, 111, 0.75);
+  }
+}
+
+@keyframes support-shine {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes support-sparkle {
+  0%, 60% { opacity: 0; transform: scale(0.6); }
+  70%     { opacity: 1; transform: scale(1); }
+  85%     { opacity: 0; transform: scale(1.3); }
+  100%    { opacity: 0; transform: scale(0.6); }
+}
+
+/* Hidden state */
+.tab[hidden] {
+  display: none !important;
+}

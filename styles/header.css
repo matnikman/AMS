@@ -1,0 +1,56 @@
+/* ============================================================
+   AMS — Header (gradient brand bar)
+   ============================================================ */
+
+.app-header {
+  background: var(--header-bg);
+  color: var(--header-fg);
+  padding: 18px var(--space);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10), transparent 40%);
+  pointer-events: none;
+}
+
+.app-header__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.app-header__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--header-fg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-header__title::before {
+  content: "📋";
+  font-size: 1.5rem;
+}
+
+.app-header__version {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}

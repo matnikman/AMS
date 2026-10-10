@@ -1,0 +1,275 @@
+/* ============================================================
+   AMS — Attendance UI
+   ============================================================ */
+
+.session-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.session-selector__label {
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-left: 4px;
+}
+
+.session-selector__date {
+  margin-inline-start: auto;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+/* Session chip: button + delete side by side */
+.session-chip {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+
+.session-chip:hover {
+  border-color: var(--accent);
+}
+
+.session-chip .session-btn {
+  border: none;
+  border-radius: 0;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text);
+}
+
+.session-chip .session-btn--active {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.session-chip .session-del {
+  width: 30px;
+  min-height: 44px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-inline-start: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.session-chip .session-del:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+.session-btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.session-btn:hover {
+  background: var(--bg);
+}
+
+.session-btn--active {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+
+.session-btn--add {
+  color: var(--text-soft);
+  border-style: dashed;
+}
+
+/* --- Status buttons --- */
+.status-group {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.status-btn {
+  width: 44px;
+  height: 44px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+}
+
+.status-btn:hover {
+  transform: scale(1.05);
+}
+
+.status-btn--active {
+  color: #fff;
+}
+
+.status-btn--present.status-btn--active { background: var(--success); border-color: var(--success); }
+.status-btn--absent.status-btn--active  { background: var(--danger);  border-color: var(--danger);  }
+.status-btn--late.status-btn--active    { background: var(--warning); border-color: var(--warning); }
+.status-btn--excused.status-btn--active { background: var(--excused); border-color: var(--excused); }
+
+.status-btn--present:hover { border-color: var(--success); color: var(--success); }
+.status-btn--absent:hover  { border-color: var(--danger);  color: var(--danger);  }
+.status-btn--late:hover    { border-color: var(--warning); color: var(--warning); }
+.status-btn--excused:hover { border-color: var(--excused); color: var(--excused); }
+
+/* --- Summary --- */
+.attendance-summary {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 12px;
+}
+
+.summary-item {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.summary-item b {
+  color: var(--text);
+  margin-inline-start: 4px;
+}
+
+.summary-item--present b { color: var(--success); }
+.summary-item--absent b  { color: var(--danger);  }
+.summary-item--late b    { color: var(--warning); }
+.summary-item--excused b { color: var(--excused); }
+.summary-item--percent b { color: var(--accent);  }
+
+.summary-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* --- Course header in current tab --- */
+.course-header {
+  border-inline-start: 4px solid var(--accent);
+}
+
+/* --- Student modal --- */
+.student-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.student-modal__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.student-modal__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.stat {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+}
+
+.stat__label {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+
+.stat__value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stat__hint {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 2px;
+  min-height: 1em;
+}
+/* --- Save status indicator -------------------------------- */
+.save-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.save-status__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  transition: background 0.2s;
+  animation: pulse 2s infinite;
+}
+
+.save-status__dot--dirty {
+  background: var(--warning);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.6; }
+}

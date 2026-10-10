@@ -1,0 +1,66 @@
+{
+  "name": "سامانهٔ حضور و غیاب دانشگاهی",
+  "short_name": "حضور و غیاب",
+  "description": "مدیریت حضور و غیاب کلاس‌های دانشگاهی — آفلاین و سریع",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f0f2f7",
+  "theme_color": "#4f46e5",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-64.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "کلاس‌ها",
+      "short_name": "کلاس‌ها",
+      "url": "./index.html?tab=courses",
+      "icons": [{ "src": "icons/icon-128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "لیست فعلی",
+      "short_name": "لیست",
+      "url": "./index.html?tab=current",
+      "icons": [{ "src": "icons/icon-128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "دانشجویان",
+      "short_name": "دانشجویان",
+      "url": "./index.html?tab=students",
+      "icons": [{ "src": "icons/icon-128.png", "sizes": "128x128" }]
+    }
+  ]
+}

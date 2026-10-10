@@ -1,0 +1,54 @@
+/* ============================================================
+   AMS — Base variables
+   Fallback palette + spacing + shadows.
+   Overridden by themes.css via [data-theme].
+   ============================================================ */
+
+:root {
+  /* --- Typography --- */
+  --font-base: "Vazirmatn", system-ui, -apple-system, sans-serif;
+  --font-scale: 1;
+
+  /* --- Fallback palette (light) --- */
+  --bg:          #f0f2f7;
+  --bg-soft:     #e8ebf2;
+  --surface:     #ffffff;
+  --surface-2:   #fafbfd;
+  --text:        #1a1d23;
+  --text-soft:   #6b7280;
+  --text-muted:  #9ca3af;
+  --border:      #e2e5ec;
+  --border-soft: #eef0f5;
+
+  /* --- Accent --- */
+  --accent:       #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft:  #eef2ff;
+  --accent-fg:    #ffffff;
+
+  /* --- Semantic --- */
+  --success:      #10b981;
+  --success-soft: #ecfdf5;
+  --danger:       #ef4444;
+  --danger-soft:  #fef2f2;
+  --warning:      #f59e0b;
+  --warning-soft: #fffbeb;
+  --excused:      #8b5cf6;
+  --excused-soft: #f5f3ff;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow:    0 2px 8px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 10px 30px rgba(16, 24, 40, 0.10);
+  --shadow-xl: 0 20px 50px rgba(16, 24, 40, 0.15);
+
+  /* --- Header brand --- */
+  --header-bg: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --header-fg: #ffffff;
+
+  /* --- Layout --- */
+  --radius:    12px;
+  --radius-sm: 8px;
+  --space:     14px;
+  --space-lg:  22px;
+}

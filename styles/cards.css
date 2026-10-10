@@ -1,0 +1,385 @@
+/* ============================================================
+   AMS — Cards (soft, elevated, accent stripes)
+   ============================================================ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: var(--space-lg);
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+.card__subtitle {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-top: 3px;
+}
+
+.card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin: 14px 0;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border-radius: 10px;
+}
+
+.card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card__meta-label {
+  color: var(--text-muted);
+}
+
+.card__meta-value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Course cards accent stripe */
+.course-card {
+  border-inline-start: 4px solid var(--accent);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--text-soft);
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-state__icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.empty-state__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.empty-state__hint {
+  font-size: 0.95rem;
+}
+
+/* Section title */
+.section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-title span:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1.1em;
+  background: var(--accent);
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-inline-end: 10px;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: var(--bg);
+  color: var(--text-soft);
+  border: 1px solid var(--border);
+}
+
+.badge--accent {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 17, 21, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 24px 26px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  animation: modalIn 0.25s ease;
+}
+
+.modal--wide {
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.modal__message {
+  color: var(--text-soft);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+/* ============================================================
+   Course students (inside course cards)
+   ============================================================ */
+
+.course-students {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+}
+
+.course-students[hidden] {
+  display: none;
+}
+
+.empty-inline {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 20px;
+  font-style: italic;
+  background: var(--surface-2);
+  border-radius: 10px;
+}
+
+/* Student row */
+.student-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  margin-bottom: 8px;
+  transition: background 0.15s;
+  flex-wrap: wrap;
+}
+
+.student-row:hover {
+  background: var(--bg);
+}
+
+.student-row__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.student-row__name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.student-row__num {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  font-feature-settings: "tnum";
+}
+
+.student-row__stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.stat-pill__label {
+  color: var(--text-soft);
+}
+
+.stat-pill__value {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.student-row__actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Form info box in add-student modal */
+.form-info {
+  padding: 10px 14px;
+  background: var(--accent-soft);
+  color: var(--text);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-top: 14px;
+  border-inline-start: 3px solid var(--accent);
+}
+
+.form-info[hidden] {
+  display: none;
+}
+/* ============================================================
+   Grade modal + student modal additions
+   ============================================================ */
+
+.grade-modal__student {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.grade-modal__num {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  font-feature-settings: "tnum";
+}
+
+.col-actions {
+  width: 100px;
+  text-align: center;
+}
+
+.col-actions .btn {
+  min-height: 32px;
+  padding: 2px 8px;
+}
+
+.col-grade-btn {
+  width: 70px;
+  text-align: center;
+}
+
+/* Attendance list inside student modal */
+.student-attendance-list {
+  margin-top: 8px;
+}
+
+.att-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.att-item {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  font-size: 0.85rem;
+}
+
+.att-item__session {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.att-item__date {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-feature-settings: "tnum";
+  margin-bottom: 4px;
+}
+
+.att-item__status {
+  font-weight: 700;
+}
+
+.att-item--present .att-item__status { color: var(--success); }
+.att-item--absent  .att-item__status { color: var(--danger); }
+.att-item--late    .att-item__status { color: var(--warning); }
+.att-item--excused .att-item__status { color: var(--excused); }
+.att-item--unset   .att-item__status { color: var(--text-muted); }

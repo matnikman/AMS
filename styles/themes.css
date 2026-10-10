@@ -1,0 +1,145 @@
+/* ============================================================
+   AMS — Themes
+   Applied via [data-theme="..."] on <html>.
+   Every theme defines ALL variables used in the app.
+   ============================================================ */
+
+/* --- Light (default) --------------------------------------- */
+[data-theme="light"] {
+  --bg:          #f0f2f7;
+  --bg-soft:     #e8ebf2;
+  --surface:     #ffffff;
+  --surface-2:   #fafbfd;
+  --text:        #1a1d23;
+  --text-soft:   #6b7280;
+  --text-muted:  #9ca3af;
+  --border:      #e2e5ec;
+  --border-soft: #eef0f5;
+
+  --accent:      #4f46e5;
+  --accent-hover:#4338ca;
+  --accent-soft: #eef2ff;
+  --accent-fg:   #ffffff;
+
+  --success:     #10b981;
+  --success-soft:#ecfdf5;
+  --danger:      #ef4444;
+  --danger-soft: #fef2f2;
+  --warning:     #f59e0b;
+  --warning-soft:#fffbeb;
+  --excused:     #8b5cf6;
+  --excused-soft:#f5f3ff;
+
+  --shadow-sm:   0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow:      0 2px 8px rgba(16, 24, 40, 0.06);
+  --shadow-lg:   0 10px 30px rgba(16, 24, 40, 0.10);
+  --shadow-xl:   0 20px 50px rgba(16, 24, 40, 0.15);
+
+  --header-bg:   linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --header-fg:   #ffffff;
+}
+
+/* --- Dark -------------------------------------------------- */
+[data-theme="dark"] {
+  --bg:          #0f1115;
+  --bg-soft:     #16191f;
+  --surface:     #1c1f26;
+  --surface-2:   #23272f;
+  --text:        #f1f3f7;
+  --text-soft:   #a1a7b3;
+  --text-muted:  #6b7280;
+  --border:      #2d323c;
+  --border-soft: #23272f;
+
+  --accent:      #6366f1;
+  --accent-hover:#818cf8;
+  --accent-soft: #1e1b4b;
+  --accent-fg:   #ffffff;
+
+  --success:     #10b981;
+  --success-soft:#064e3b;
+  --danger:      #ef4444;
+  --danger-soft: #450a0a;
+  --warning:     #f59e0b;
+  --warning-soft:#451a03;
+  --excused:     #a78bfa;
+  --excused-soft:#2e1065;
+
+  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow:      0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg:   0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl:   0 20px 50px rgba(0, 0, 0, 0.6);
+
+  --header-bg:   linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+  --header-fg:   #ffffff;
+}
+
+/* --- Gray -------------------------------------------------- */
+[data-theme="gray"] {
+  --bg:          #e5e7eb;
+  --bg-soft:     #d1d5db;
+  --surface:     #f9fafb;
+  --surface-2:   #f3f4f6;
+  --text:        #1f2937;
+  --text-soft:   #4b5563;
+  --text-muted:  #6b7280;
+  --border:      #d1d5db;
+  --border-soft: #e5e7eb;
+
+  --accent:      #374151;
+  --accent-hover:#1f2937;
+  --accent-soft: #e5e7eb;
+  --accent-fg:   #ffffff;
+
+  --success:     #059669;
+  --success-soft:#d1fae5;
+  --danger:      #dc2626;
+  --danger-soft: #fee2e2;
+  --warning:     #d97706;
+  --warning-soft:#fef3c7;
+  --excused:     #7c3aed;
+  --excused-soft:#ede9fe;
+
+  --shadow-sm:   0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow:      0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg:   0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl:   0 20px 50px rgba(0, 0, 0, 0.18);
+
+  --header-bg:   linear-gradient(135deg, #374151 0%, #111827 100%);
+  --header-fg:   #ffffff;
+}
+
+/* --- Eye care (soft cream) --------------------------------- */
+[data-theme="eye"] {
+  --bg:          #f5efe0;
+  --bg-soft:     #ebe3d0;
+  --surface:     #fdfaf1;
+  --surface-2:   #f9f5e8;
+  --text:        #3a3226;
+  --text-soft:   #6f6553;
+  --text-muted:  #928770;
+  --border:      #e0d6bb;
+  --border-soft: #eee5d0;
+
+  --accent:      #b45309;
+  --accent-hover:#92400e;
+  --accent-soft: #fef3c7;
+  --accent-fg:   #ffffff;
+
+  --success:     #15803d;
+  --success-soft:#dcfce7;
+  --danger:      #b91c1c;
+  --danger-soft: #fee2e2;
+  --warning:     #c2410c;
+  --warning-soft:#ffedd5;
+  --excused:     #7c3aed;
+  --excused-soft:#ede9fe;
+
+  --shadow-sm:   0 1px 2px rgba(58, 50, 38, 0.06);
+  --shadow:      0 2px 8px rgba(58, 50, 38, 0.08);
+  --shadow-lg:   0 10px 30px rgba(58, 50, 38, 0.12);
+  --shadow-xl:   0 20px 50px rgba(58, 50, 38, 0.18);
+
+  --header-bg:   linear-gradient(135deg, #b45309 0%, #d97706 100%);
+  --header-fg:   #ffffff;
+}

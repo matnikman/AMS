@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="description" content="سامانهٔ حضور و غیاب دانشگاهی — مدیریت کلاس‌ها، دانشجوها، حضور و نمرات" />
+
+  <title>سامانهٔ حضور و غیاب</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="64x64" href="icons/icon-64.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon-128.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="icons/icon-256.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="حضور و غیاب" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div class="app-header__inner">
+        <h1 class="app-header__title">سامانهٔ حضور و غیاب</h1>
+        <span class="app-header__version">نسخهٔ ۳.۰.۰</span>
+      </div>
+    </header>
+
+    <nav class="tabbar" role="tablist">
+      <button class="tab" data-tab="students"  role="tab">دانشجویان</button>
+      <button class="tab" data-tab="current"   role="tab">لیست فعلی</button>
+      <button class="tab" data-tab="courses"   role="tab">کلاس‌ها</button>
+      <button class="tab" data-tab="settings"  role="tab">تنظیمات</button>
+      <button class="tab tab--support" data-tab="support" role="tab">💛 حمایت</button>
+    </nav>
+
+    <main class="app-main">
+      <section id="tab-students" class="tab-panel" hidden></section>
+      <section id="tab-current"  class="tab-panel" hidden></section>
+      <section id="tab-courses"  class="tab-panel" hidden></section>
+      <section id="tab-settings" class="tab-panel" hidden></section>
+      <section id="tab-support"  class="tab-panel" hidden></section>
+    </main>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

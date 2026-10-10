@@ -1,0 +1,256 @@
+/* ============================================================
+   AMS — Settings tab
+   ============================================================ */
+
+.settings-section {
+  margin-top: 18px;
+}
+
+.settings-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.settings-value {
+  color: var(--accent);
+  font-feature-settings: "tnum";
+}
+
+/* --- Range input ------------------------------------------- */
+.settings-range {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.settings-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+  transition: transform 0.1s;
+}
+
+.settings-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.settings-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.4);
+}
+
+.settings-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 6px;
+}
+
+/* --- Theme picker ----------------------------------------- */
+.theme-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.theme-card {
+  position: relative;
+  padding: 10px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.theme-card--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.theme-card__preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.theme-card__bar {
+  height: 12px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+
+.theme-card__line {
+  height: 5px;
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+.theme-card__label {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.theme-card__check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* --- Digit style picker ----------------------------------- */
+.digit-style-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.digit-style-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+  text-align: center;
+}
+
+.digit-style-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.digit-style-card--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.digit-style-card__preview {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-feature-settings: "tnum";
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+
+.digit-style-card__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.settings-hint {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  border-inline-start: 3px solid var(--accent);
+}
+
+/* --- Import summary -------------------------------------- */
+.import-summary {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--surface-2);
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+}
+
+.import-summary__title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-soft);
+}
+
+.import-summary__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.import-summary__items span {
+  font-weight: 600;
+}
+
+.import-summary__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* --- Danger card ------------------------------------------ */
+.card--danger {
+  border: 1px solid var(--danger);
+  background: var(--danger-soft);
+}
+
+.card--danger .card__title {
+  color: var(--danger);
+}
+
+/* --- About grid ------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px 20px;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.about-grid strong {
+  color: var(--text);
+  margin-inline-end: 4px;
+}
