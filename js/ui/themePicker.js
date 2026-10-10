@@ -1,9 +1,9 @@
 /* ============================================================
-   AMS — Theme picker
-   Visual color-card selector for the 4 themes.
+   AMS — Theme picker (loop-safe)
+   Changes theme without re-rendering any parent.
    ============================================================ */
 
-import { getSettings, updateSettings } from "../core/settings.js";
+import { updateSettings } from "../core/settings.js";
 import { toastSuccess } from "../core/toast.js";
 
 export const THEMES = [
@@ -13,14 +13,14 @@ export const THEMES = [
   { key: "eye",   label: "محافظ چشم", colors: ["#b45309", "#f5efe0", "#3a3226"] },
 ];
 
-/**
- * Build the theme picker section.
- */
 export function buildThemePicker() {
   const wrap = document.createElement("div");
   wrap.className = "theme-picker";
 
-  const current = getSettings().theme;
+  let current = document.documentElement.getAttribute("data-theme") || "light";
+
+  /* Create all cards once */
+  const cards = {};
 
   for (const theme of THEMES) {
     const card = document.createElement("button");
@@ -37,36 +37,38 @@ export function buildThemePicker() {
         <div class="theme-card__line" style="background:${theme.colors[2]};width:85%"></div>
       </div>
       <div class="theme-card__label">${theme.label}</div>
-      ${theme.key === current ? '<div class="theme-card__check">✓</div>' : ""}
+      <div class="theme-card__check" ${theme.key === current ? "" : "hidden"}>✓</div>
     `;
 
-    card.addEventListener("click", () => {
-      /* 1. Save setting */
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (theme.key === current) return;
+
+      /* 1. Update settings (persist) */
       updateSettings({ theme: theme.key });
 
-      /* 2. Apply immediately to <html> */
+      /* 2. Apply to <html> immediately */
       document.documentElement.setAttribute("data-theme", theme.key);
+      try { localStorage.setItem("ams.theme", theme.key); } catch {}
 
-      /* 3. Persist for theme-boot */
-      try {
-        localStorage.setItem("ams.theme", theme.key);
-      } catch {}
+      /* 3. Update check marks in-place */
+      for (const key of Object.keys(cards)) {
+        const c = cards[key];
+        const check = c.querySelector(".theme-card__check");
+        const isActive = key === theme.key;
+        c.classList.toggle("theme-card--active", isActive);
+        if (check) check.hidden = !isActive;
+      }
 
-      /* 4. Update check marks in-place (no full re-render) */
-      wrap.querySelectorAll(".theme-card").forEach((el) => {
-        el.classList.remove("theme-card--active");
-        const check = el.querySelector(".theme-card__check");
-        if (check) check.remove();
-      });
-      card.classList.add("theme-card--active");
-      const newCheck = document.createElement("div");
-      newCheck.className = "theme-card__check";
-      newCheck.textContent = "✓";
-      card.appendChild(newCheck);
+      current = theme.key;
 
+      /* 4. Toast */
       toastSuccess(`تم «${theme.label}» فعال شد`);
     });
 
+    cards[theme.key] = card;
     wrap.appendChild(card);
   }
 
