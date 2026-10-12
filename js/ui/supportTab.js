@@ -1,21 +1,14 @@
 /* ============================================================
    AMS — Support tab
-   A warm message + card number + Mahak charity link + contact.
+   A warm message + Mahak charity link.
    Includes a toggle to hide the tab from the tab bar.
    ============================================================ */
 
 import { getSettings } from "../core/settings.js";
 import { setSupportTabHidden } from "./tabs.js";
-import { toastSuccess, toastInfo } from "../core/toast.js";
-
-const CARD_NUMBER_DISPLAY = "6037-9919-4982-6758";
-const CARD_NUMBER_RAW = "6037991949826758";
-const CARD_HOLDER = "متین نیک منش";
+import { toastSuccess } from "../core/toast.js";
 
 const MAHAK_URL = "https://mahak-charity.org/online-payment/";
-
-const PHONE_DISPLAY = "۰۹۱۶۷۸۲۷۵۴۱";
-const PHONE_RAW = "09167827541";
 
 /* ------------------------------------------------------------
    Render
@@ -33,14 +26,8 @@ export function renderSupport() {
   /* Intro */
   wrap.appendChild(buildIntro());
 
-  /* Card number */
-  wrap.appendChild(buildCardBlock());
-
   /* Mahak */
   wrap.appendChild(buildMahakBlock());
-
-  /* Contact */
-  wrap.appendChild(buildContactBlock());
 
   /* Hide-tab toggle */
   wrap.appendChild(buildHideToggle());
@@ -75,43 +62,6 @@ function buildIntro() {
 }
 
 /* ------------------------------------------------------------
-   Card number block
-   ------------------------------------------------------------ */
-
-function buildCardBlock() {
-  const card = document.createElement("div");
-  card.className = "support-block support-block--card";
-
-  card.innerHTML = `
-    <div class="support-block__title">💳 شماره کارت</div>
-    <div class="support-line">
-      <span class="support-line__value support-line__value--card" dir="ltr">
-        ${CARD_NUMBER_DISPLAY}
-      </span>
-      <button class="btn btn--sm" data-action="copy-card">📋 کپی</button>
-    </div>
-    <div class="support-holder">
-      به نام: <strong>${CARD_HOLDER}</strong>
-    </div>
-  `;
-
-  card.querySelector('[data-action="copy-card"]').addEventListener("click", async (e) => {
-    const btn = e.currentTarget;
-    const ok = await copyToClipboard(CARD_NUMBER_RAW);
-    if (ok) {
-      toastSuccess("شماره کارت کپی شد");
-      const old = btn.textContent;
-      btn.textContent = "✓ کپی شد";
-      setTimeout(() => (btn.textContent = old), 1800);
-    } else {
-      toastInfo("کپی نشد. دستی انتخاب کن.");
-    }
-  });
-
-  return card;
-}
-
-/* ------------------------------------------------------------
    Mahak block
    ------------------------------------------------------------ */
 
@@ -135,43 +85,6 @@ function buildMahakBlock() {
   `;
 
   return block;
-}
-
-/* ------------------------------------------------------------
-   Contact block
-   ------------------------------------------------------------ */
-
-function buildContactBlock() {
-  const card = document.createElement("div");
-  card.className = "support-block support-block--contact";
-
-  card.innerHTML = `
-    <div class="support-block__title">📞 ارتباط و گزارش باگ</div>
-    <div class="support-line">
-      <a class="support-line__value support-line__value--phone" href="tel:${PHONE_RAW}" dir="ltr">
-        ${PHONE_DISPLAY}
-      </a>
-      <button class="btn btn--sm" data-action="copy-phone">📋 کپی</button>
-    </div>
-    <div class="support-hint">
-      اگه باگی دیدی، پیشنهادی داری، یا فقط می‌خوای سلام کنی — یه پیام بده.
-    </div>
-  `;
-
-  card.querySelector('[data-action="copy-phone"]').addEventListener("click", async (e) => {
-    const btn = e.currentTarget;
-    const ok = await copyToClipboard(PHONE_RAW);
-    if (ok) {
-      toastSuccess("شماره تماس کپی شد");
-      const old = btn.textContent;
-      btn.textContent = "✓ کپی شد";
-      setTimeout(() => (btn.textContent = old), 1800);
-    } else {
-      toastInfo("کپی نشد. دستی انتخاب کن.");
-    }
-  });
-
-  return card;
 }
 
 /* ------------------------------------------------------------
@@ -203,34 +116,8 @@ function buildHideToggle() {
     } else {
       toastSuccess("تب دوباره نمایش داده می‌شه.");
     }
-    /* Re-render to reflect new state (we stay on support tab) */
     renderSupport();
   });
 
   return box;
-}
-
-/* ------------------------------------------------------------
-   Utilities
-   ------------------------------------------------------------ */
-
-async function copyToClipboard(text) {
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return true;
-    }
-    /* Fallback */
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    const ok = document.execCommand("copy");
-    ta.remove();
-    return ok;
-  } catch {
-    return false;
-  }
 }
